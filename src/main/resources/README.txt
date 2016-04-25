@@ -4,3 +4,4 @@
 * Replaced spring-boot-starter with spring-boot-starter-web
 * Run the Application.java As Spring Boot App
 * Navigating to http://localhost:8080/ yields Whitelabel Error Page
+* To change the embedded server's port, add server.port=${port:9090} to \src\main\resources\application.properties file
