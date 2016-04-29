@@ -19,3 +19,9 @@
   //else
 	return new ResponseEntity&lt;T&gt;(HttpStatus.NOT_FOUND);
 * Navigate to http://localhost:9090/users/1 & http://localhost:9090/users/2
+* @RequestMapping(value = "/rest/entities", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity&lt;T&gt; createEntity(@RequestBody User user) {	
+	// If creation succeeded 	
+		return new ResponseEntity&lt;T&gt;(..., HttpStatus.CREATED);
+* Send POST to http://localhost:9090/rest/users/ with Body raw {...} & Content-Type application/json
+* Then * Navigate to http://localhost:9090/users & http://localhost:9090/users/2

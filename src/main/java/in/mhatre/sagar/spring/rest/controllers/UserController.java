@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,12 +20,12 @@ public class UserController {
 
 	private UserDao userDao = UserDao.getInstance();
 
-	@RequestMapping(value = "rest/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/rest/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Collection<User>> getAllUsers() {
 		return new ResponseEntity<Collection<User>>(userDao.getAllUsers(), HttpStatus.OK);
 	}
-	
-	@RequestMapping(value = "rest/users/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+
+	@RequestMapping(value = "/rest/users/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<User> getUserById(@PathVariable("userId") int id) {
 		User user;
 		try {
@@ -32,7 +33,13 @@ public class UserController {
 			return new ResponseEntity<User>(user, HttpStatus.OK);
 		} catch (UserDoesNotExistException e) {
 			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
-		} 
-		
+		}
+
+	}
+
+	@RequestMapping(value = "/rest/users", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<User> createUser(@RequestBody User user) {
+		userDao.addUser(user);
+		return new ResponseEntity<User>(user, HttpStatus.CREATED);
 	}
 }
