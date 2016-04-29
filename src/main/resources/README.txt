@@ -7,3 +7,8 @@
 * To change the embedded server's port, add server.port=${port:9090} to \src\main\resources\application.properties file
 * Add Model class with Attributes, getters, setters & deafult no arg constructor
 * Add Dao class to add, edit, del, get model objects
+* @RestController (value="/rest/entities") 
+* @RequestMapping (method = RequestMethod.GET , produces = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity<Collection<T>> methodForGETtingAllObjects() {
+	return new ResponseEntity<Collection<T>>(..., HttpStatus.OK) 	}
+* Navigate to http://localhost:9090/users

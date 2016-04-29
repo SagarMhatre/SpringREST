@@ -1,7 +1,4 @@
-package in.mhatre.sagar.spring.rest.model;
-
-import javax.validation.constraints.Size;
-import org.hibernate.validator.constraints.NotEmpty;
+package in.mhatre.sagar.spring.rest.models;
 
 public class User {
 	private int id;

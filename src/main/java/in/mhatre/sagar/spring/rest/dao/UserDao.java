@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import in.mhatre.sagar.spring.rest.exceptions.UserDoesNotExistException;
-import in.mhatre.sagar.spring.rest.model.User;
+import in.mhatre.sagar.spring.rest.models.User;
 
 public class UserDao {
 
