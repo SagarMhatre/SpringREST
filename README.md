@@ -27,9 +27,17 @@
 * Then * Navigate to http://localhost:9090/users & http://localhost:9090/users/2
 * @RequestMapping(value = "/rest/entities/{entityId}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity&lt;T&gt; updateEntity(@PathVariable("entityId") int id, @RequestBody T t) {
-	  //If found, then edit & 
+  //If found, then edit & 
     return new ResponseEntity&lt;T&gt;(..., HttpStatus.OK);
   //else
 	return new ResponseEntity&lt;T&gt;(HttpStatus.NOT_FOUND);
 * Send PUT to http://localhost:9090/rest/users/2 & http://localhost:9090/rest/users/3  with Body raw {...} & Content-Type application/json
-* Then * Navigate to http://localhost:9090/users & http://localhost:9090/users/2
+* Then Navigate to http://localhost:9090/users & http://localhost:9090/users/2
+* @RequestMapping(value = "/rest/entities/{entityId}", method = RequestMethod.DELETE,produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity&lt;T&gt; updateEntity(@PathVariable("entityId") int id) {
+  //If found, then delete & 
+    return new ResponseEntity&lt;T&gt;(..., HttpStatus.NO_CONTENT);
+  //else
+	return new ResponseEntity&lt;T&gt;(HttpStatus.NOT_FOUND);
+* Send DELETE to http://localhost:9090/rest/users/2 with Content-Type application/json
+* Then Navigate to http://localhost:9090/users & http://localhost:9090/users/2

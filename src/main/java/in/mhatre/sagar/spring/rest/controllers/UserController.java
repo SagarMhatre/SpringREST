@@ -52,4 +52,15 @@ public class UserController {
 			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
 		}		
 	}
+	
+	@RequestMapping(value = "/rest/users/{userId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<User> updateUser(@PathVariable("userId") int id) {
+		try {
+			User user = userDao.getUserById(id);
+			userDao.delUserById(id);
+			return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+		} catch (UserDoesNotExistException e) {
+			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+		}		
+	}
 }
