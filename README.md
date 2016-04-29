@@ -9,6 +9,6 @@
 * Add Dao class to add, edit, del, get model objects
 * @RestController (value="/rest/entities") 
 * @RequestMapping (method = RequestMethod.GET , produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<Collection<T>> methodForGETtingAllObjects() {
-	return new ResponseEntity<Collection<T>>(..., HttpStatus.OK) 	}
+  public ResponseEntity&lt;Collection&lt;T&gt;&gt; methodForGETtingAllObjects() {
+	return new ResponseEntity&lt;Collection&lt;T&gt;&gt;(..., HttpStatus.OK) 	}
 * Navigate to http://localhost:9090/users
