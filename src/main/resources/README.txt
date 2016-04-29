@@ -5,3 +5,5 @@
 * Run the Application.java As Spring Boot App
 * Navigating to http://localhost:8080/ yields Whitelabel Error Page
 * To change the embedded server's port, add server.port=${port:9090} to \src\main\resources\application.properties file
+* Add Model class with Attributes, getters, setters & deafult no arg constructor
+* Add Dao class to add, edit, del, get model objects
