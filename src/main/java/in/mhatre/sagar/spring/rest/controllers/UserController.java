@@ -42,4 +42,14 @@ public class UserController {
 		userDao.addUser(user);
 		return new ResponseEntity<User>(user, HttpStatus.CREATED);
 	}
+	
+	@RequestMapping(value = "/rest/users/{userId}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<User> updateUser(@PathVariable("userId") int id, @RequestBody User user) {
+		try {
+			userDao.editUser(id, user);
+			return new ResponseEntity<User>(user, HttpStatus.OK);
+		} catch (UserDoesNotExistException e) {
+			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+		}		
+	}
 }

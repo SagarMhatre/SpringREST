@@ -33,10 +33,10 @@ public class UserDao {
 		return true;
 	}
 
-	public User editUser(User user) throws UserDoesNotExistException {
-		if (users.containsKey(user.getId())) {
-			User u = users.put(user.getId(), user);
-			return users.get(user.getId());
+	public User editUser(int id, User user) throws UserDoesNotExistException {
+		if (users.containsKey(id)) {
+			User u = users.put(id, user);
+			return users.get(id);
 		} else
 			throw new UserDoesNotExistException();
 	}
@@ -69,7 +69,7 @@ public class UserDao {
 		User u = new User();
 		u.setLoginId("sagar");
 		u.setId(1);
-		System.out.println(UserDao.getInstance().editUser(u));
+		System.out.println(UserDao.getInstance().editUser(2,u));
 
 		for (User user : UserDao.getInstance().getAllUsers())
 			System.out.println(user);
