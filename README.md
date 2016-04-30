@@ -41,3 +41,4 @@
 	return new ResponseEntity&lt;T&gt;(HttpStatus.NOT_FOUND);
 * Send DELETE to http://localhost:9090/rest/users/2 with Content-Type application/json
 * Then Navigate to http://localhost:9090/users & http://localhost:9090/users/2
+* Create an interface with all business methods. Implement it. Annotate the subclass with @Service. In controller declare a variable of type of the interface and annotate it with @Autowired. use this variable instead of the dao instance
